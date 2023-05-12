@@ -1,4 +1,3 @@
-
 const question = +prompt('Яку довжину массиву Ви хочете задати? Введіть число.');
 question ? true : alert('Помилка');
 let long;
@@ -17,7 +16,16 @@ for (let i = 1; i <= question; i++) {
         console.log(arr);
     };
 };
-arr.sort();
+
+
+let numbers = [];
+let strings = [];
+arr.forEach(e => (isNaN(e) ? strings : numbers).push(e));
+numbers = numbers.sort((a, b) => Number(a) - Number(b));
+strings = strings.sort();
+arr = numbers.concat(strings);
 console.log(arr);
+
+
 arr.splice(2, 3);
 console.log(arr);
